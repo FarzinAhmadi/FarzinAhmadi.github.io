@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farzin Ahmadi - Healthcare Operations Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .header .position {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .research-interests {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .research-interests h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .research-interests ul {
+            list-style: none;
+        }
+
+        .research-interests li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .research-interests li::before {
+            content: '▸';
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .experience-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .experience-item .position {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Publications */
+        .publications-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .publication-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .publication-item .journal {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .publication-item .authors {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>Farzin Ahmadi</h1>
+                <p class="subtitle">Healthcare Operations Analytics & Optimization</p>
+                <p class="position">Incoming Assistant Professor, Towson University</p>
+                <p class="position">Postdoctoral Fellow, Johns Hopkins University</p>
+                <div class="social-links">
+                    <a href="mailto:fahmadi1@jhu.edu" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://farzin.wse.jhu.edu" title="JHU Profile"><i class="fas fa-university"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <p>I am an incoming Assistant Professor of Healthcare Management at Towson University and currently a Postdoctoral Fellow at the Center for Systems Science & Engineering at Johns Hopkins University.</p>
+                        
+                        <p>My research focuses on developing data-driven optimization models and AI-powered decision support systems to improve healthcare delivery, resource allocation, and patient outcomes. I have extensive experience in inverse optimization, machine learning applications in healthcare, and healthcare operations analytics.</p>
+                        
+                        <p>I earned my Ph.D. in Civil and Systems Engineering from Johns Hopkins University, where I worked on cutting-edge research in healthcare operations optimization and inverse optimization methods.</p>
+                    </div>
+                    
+                    <div class="research-interests fade-in">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Healthcare Operations Analytics and Optimization</li>
+                            <li>Data-Driven Healthcare Management Decision Support</li>
+                            <li>Decision Making in Healthcare</li>
+                            <li>Healthcare Resource Allocation and Strategic Planning</li>
+                            <li>Healthcare Technology Implementation and Assessment</li>
+                            <li>Healthcare Analytics for Quality Improvement</li>
+                            <li>Sequential Decision Making in Healthcare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section" style="background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-item fade-in">
+                        <h3>Towson University</h3>
+                        <div class="position">Incoming Assistant Professor of Healthcare Management</div>
+                        <div class="date">Starting August 2025</div>
+                    </div>
+                    
+                    <div class="experience-item fade-in">
+                        <h3>Johns Hopkins University</h3>
+                        <div class="position">Postdoctoral Fellow, Center for Systems Science & Engineering</div>
+                        <div class="date">March 2025 - August 2025</div>
+                    </div>
+                    
+                    <div class="experience-item fade-in">
+                        <h3>Massachusetts Institute of Technology</h3>
+                        <div class="position">Ph.D. Researcher, Computer Science & AI Laboratory (CSAIL)</div>
+                        <div class="date">June 2024 - December 2024</div>
+                    </div>
+                    
+                    <div class="experience-item fade-in">
+                        <h3>Johns Hopkins University</h3>
+                        <div class="position">Ph.D. in Civil and Systems Engineering</div>
+                        <div class="date">2019 - 2025</div>
+                        <p>Committee: Todd McNutt (chair), Kimia Ghobadi (advisor), Tinglong Dai, Yury Dvorkin, Takeru Igusa, Susu Xu, Ritu Agarwal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-grid">
+                    <div class="publication-item fade-in">
+                        <h4>Evolving Patterns of COVID-19 Mortality in US Counties: A Longitudinal Study of Healthcare, Socioeconomic, and Vaccination Associations</h4>
+                        <div class="journal">PLOS Global Health (2024)</div>
+                        <div class="authors">with Fardin Ganjkhanloo, Ensheng Dong, Felix Parker, Lauren Gardner, and Kimia Ghobadi</div>
+                    </div>
+                    
+                    <div class="publication-item fade-in">
+                        <h4>The Johns Hopkins University Center for Systems Science and Engineering COVID-19 Dashboard: data collection process, challenges faced, and lessons learned</h4>
+                        <div class="journal">The Lancet Infectious Diseases (2022)</div>
+                        <div class="authors">with Ensheng Dong, Jeremy Ratcliff, Tamara D Goyea, Aaron Katz, Ryan Lau, Timothy K Ng, Beatrice Garcia, Evan Bolt, Sarah Prata, David Zhang, Reina C Murray, Mara R Blake, Hongru Du, Fardin Ganjkhanloo, Jason Williams, Sayeed Choudhury, Lauren M Gardner</div>
+                    </div>
+                    
+                    <div class="publication-item fade-in">
+                        <h4>Leveraging Expert Knowledge to Guide Inverse Optimization: The Case of Nutritional Adherence</h4>
+                        <div class="journal">Under Review: Management Sciences</div>
+                        <div class="authors">with Fardin Ganjkhanloo and Kimia Ghobadi</div>
+                    </div>
+                    
+                    <div class="publication-item fade-in">
+                        <h4>You Are What You Eat: A Preference-Aware Inverse Optimization Approach</h4>
+                        <div class="journal">Under Review: INFORMS Journal of Optimization</div>
+                        <div class="authors">with Tinglong Dai and Kimia Ghobadi</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="teaching" class="section" style="background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">Teaching & Service</h2>
+                <div class="experience-grid">
+                    <div class="experience-item fade-in">
+                        <h3>Teaching Excellence</h3>
+                        <p>Recipient of the Teaching Assistant Award for excellence in teaching and dedication to engineering education at Johns Hopkins University (2022).</p>
+                        <p><strong>Course Evaluation Highlights:</strong> Overall instructor evaluation: 5.00/5.00, Overall course quality: 4.75/5.00</p>
+                    </div>
+                    
+                    <div class="experience-item fade-in">
+                        <h3>Leadership & Service</h3>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li>President, Johns Hopkins University INFORMS Student Chapter (2022-2024)</li>
+                            <li>Editorial Board Member, ORMS Tomorrow (2022-2024)</li>
+                            <li>Peer Reviewer, PLOS Global Public Health (2024-2025)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item fade-in">
+                        <h3>Notable Project</h3>
+                        <p><strong>COVID-19 Dashboard:</strong> Played a key role in data maintenance and monitoring for the globally recognized COVID-19 Dashboard by Johns Hopkins CSSE, working with state health organizations to ensure timely and accurate data reporting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:fahmadi1@jhu.edu">fahmadi1@jhu.edu</a> | 
+                        <a href="mailto:farzin.ahmadi1@gmail.com">farzin.ahmadi1@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Center for Systems Science and Engineering<br>
+                        Johns Hopkins University<br>
+                        Shaffer Hall, 3400 N. Charles St., Baltimore, MD 21218
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://farzin.wse.jhu.edu">https://farzin.wse.jhu.edu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Farzin Ahmadi. All rights reserved. | Last Updated: March 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-list a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
