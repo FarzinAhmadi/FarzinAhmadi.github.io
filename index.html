@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farzin Ahmadi - Healthcare Operations Analytics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -63,6 +63,7 @@
             justify-content: center;
             font-size: 60px;
             color: rgba(255,255,255,0.8);
+            overflow: hidden;
         }
 
         .header h1 {
@@ -80,7 +81,7 @@
         .header .position {
             font-size: 1.1rem;
             opacity: 0.8;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .social-links {
@@ -88,12 +89,14 @@
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .social-links a {
             color: white;
             font-size: 1.5rem;
             transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
         .social-links a:hover {
@@ -115,6 +118,7 @@
             justify-content: center;
             list-style: none;
             gap: 40px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -124,16 +128,24 @@
             padding: 10px 20px;
             border-radius: 25px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .nav-list a:hover {
+        .nav-list a:hover,
+        .nav-list a.active {
             background: #667eea;
             color: white;
         }
 
-        /* Sections */
-        .section {
+        /* Content Sections */
+        .content-section {
+            display: none;
             padding: 80px 0;
+            min-height: 70vh;
+        }
+
+        .content-section.active {
+            display: block;
         }
 
         .section-title {
@@ -159,9 +171,9 @@
         /* About */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: start;
         }
 
         .about-text {
@@ -191,7 +203,7 @@
         }
 
         .research-interests li {
-            padding: 5px 0;
+            padding: 8px 0;
             padding-left: 20px;
             position: relative;
         }
@@ -203,13 +215,13 @@
             left: 0;
         }
 
-        /* Experience */
-        .experience-grid {
+        /* Cards */
+        .card-grid {
             display: grid;
             gap: 30px;
         }
 
-        .experience-item {
+        .card {
             background: white;
             padding: 30px;
             border-radius: 15px;
@@ -217,52 +229,46 @@
             border-left: 5px solid #667eea;
         }
 
-        .experience-item h3 {
+        .card h3 {
             color: #333;
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
 
-        .experience-item .position {
+        .card .subtitle {
             color: #667eea;
             font-weight: 600;
             margin-bottom: 5px;
         }
 
-        .experience-item .date {
+        .card .date {
             color: #666;
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
 
-        /* Publications */
-        .publications-grid {
-            display: grid;
-            gap: 25px;
-        }
-
-        .publication-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .publication-item h4 {
+        .card h4 {
             color: #333;
             margin-bottom: 10px;
             line-height: 1.4;
         }
 
-        .publication-item .journal {
+        .card .journal {
             color: #667eea;
             font-weight: 600;
             margin-bottom: 5px;
         }
 
-        .publication-item .authors {
+        .card .authors {
             color: #666;
             font-size: 0.9rem;
+        }
+
+        /* Two column layout for publications */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
         }
 
         /* Contact */
@@ -272,6 +278,8 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-item {
@@ -299,6 +307,7 @@
             color: white;
             text-align: center;
             padding: 30px 0;
+            margin-top: 80px;
         }
 
         /* Responsive */
@@ -308,8 +317,12 @@
             }
 
             .nav-list {
-                flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+            }
+
+            .nav-list a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
             }
 
             .about-content {
@@ -317,12 +330,20 @@
                 gap: 40px;
             }
 
-            .section {
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
                 padding: 60px 0;
             }
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .social-links {
+                gap: 15px;
             }
         }
 
@@ -333,14 +354,23 @@
 
         /* Animations */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            animation: fadeIn 0.6s ease-in;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Special styling for alternating sections */
+        .content-section:nth-child(even) {
+            background-color: #f8f9fa;
         }
     </style>
 </head>
@@ -357,10 +387,10 @@
                 <p class="position">Postdoctoral Fellow, Johns Hopkins University</p>
                 <div class="social-links">
                     <a href="mailto:fahmadi@towson.edu" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://farzinahmadi.github.io" title="JHU Profile"><i class="fas fa-university"></i></a>
+                    <a href="https://farzinahmadi.github.io" title="GitHub Profile"><i class="fas fa-university"></i></a>
                     <a href="https://www.linkedin.com/in/farzin-ahmadi/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://scholar.google.com/citations?user=UysbfPkAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://x.com/FarzinAhmadi5" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://x.com/FarzinAhmadi5" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
                     <a href="https://github.com/FarzinAhmadi" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
@@ -370,29 +400,32 @@
     <nav class="nav">
         <div class="container">
             <ul class="nav-list">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" data-section="about" class="nav-link active">About</a></li>
+                <li><a href="#" data-section="experience" class="nav-link">Experience</a></li>
+                <li><a href="#" data-section="publications" class="nav-link">Publications</a></li>
+                <li><a href="#" data-section="teaching" class="nav-link">Teaching & Service</a></li>
+                <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-        <section id="about" class="section">
+        <!-- About Section -->
+        <section id="about" class="content-section active">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-text fade-in">
+                <div class="about-content fade-in">
+                    <div class="about-text">
                         <p>I am an incoming Assistant Professor of Healthcare Management at Towson University and currently a Postdoctoral Fellow at the Center for Systems Science & Engineering at Johns Hopkins University.</p>
                         
                         <p>My research focuses on developing data-driven optimization models and AI-powered decision support systems to improve healthcare delivery, resource allocation, and patient outcomes. I have extensive experience in inverse optimization, machine learning applications in healthcare, and healthcare operations analytics.</p>
                         
                         <p>I earned my Ph.D. in Civil and Systems Engineering from Johns Hopkins University, where I worked on cutting-edge research in healthcare operations optimization and inverse optimization methods.</p>
+                        
+                        <p>I was also a Ph.D. researcher at MIT's Computer Science & Artificial Intelligence Laboratory (CSAIL), where I further developed my expertise in AI applications for healthcare systems.</p>
                     </div>
                     
-                    <div class="research-interests fade-in">
+                    <div class="research-interests">
                         <h3>Research Interests</h3>
                         <ul>
                             <li>Healthcare Operations Analytics and Optimization</li>
@@ -408,116 +441,220 @@
             </div>
         </section>
 
-        <section id="experience" class="section" style="background-color: #f8f9fa;">
+        <!-- Experience Section -->
+        <section id="experience" class="content-section">
             <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-grid">
-                    <div class="experience-item fade-in">
+                <h2 class="section-title">Experience & Education</h2>
+                <div class="card-grid fade-in">
+                    <div class="card">
                         <h3>Towson University</h3>
-                        <div class="position">Incoming Assistant Professor of Healthcare Management</div>
+                        <div class="subtitle">Incoming Assistant Professor of Healthcare Management</div>
                         <div class="date">Starting August 2025</div>
+                        <p>Joining the College of Health Professions to teach and conduct research in healthcare operations and management.</p>
                     </div>
                     
-                    <div class="experience-item fade-in">
+                    <div class="card">
                         <h3>Johns Hopkins University</h3>
-                        <div class="position">Postdoctoral Fellow, Center for Systems Science & Engineering</div>
+                        <div class="subtitle">Postdoctoral Fellow, Center for Systems Science & Engineering</div>
                         <div class="date">March 2025 - August 2025</div>
+                        <p>Conducting advanced research in healthcare systems engineering and epidemiological modeling.</p>
                     </div>
                     
-                    <div class="experience-item fade-in">
+                    <div class="card">
                         <h3>Massachusetts Institute of Technology</h3>
-                        <div class="position">Ph.D. Researcher, Computer Science & AI Laboratory (CSAIL)</div>
+                        <div class="subtitle">Ph.D. Researcher, Computer Science & AI Laboratory (CSAIL)</div>
                         <div class="date">June 2024 - December 2024</div>
+                        <p>Research focused on AI applications in healthcare operations and decision-making systems.</p>
                     </div>
                     
-                    <div class="experience-item fade-in">
+                    <div class="card">
                         <h3>Johns Hopkins University</h3>
-                        <div class="position">Ph.D. in Civil and Systems Engineering</div>
+                        <div class="subtitle">Ph.D. in Civil and Systems Engineering</div>
                         <div class="date">2019 - 2025</div>
-                        <p>Committee: Todd McNutt (chair), Kimia Ghobadi (advisor), Tinglong Dai, Yury Dvorkin, Takeru Igusa, Susu Xu, Ritu Agarwal</p>
+                        <p><strong>Dissertation Committee:</strong> Todd McNutt (chair), Kimia Ghobadi (advisor), Tinglong Dai, Yury Dvorkin, Takeru Igusa, Susu Xu, Ritu Agarwal</p>
+                        <p><strong>M.S. in Systems Engineering</strong> completed as part of the doctoral program.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Sharif University of Technology</h3>
+                        <div class="subtitle">M.Eng. in Transportation Engineering</div>
+                        <div class="date">2016 - 2018</div>
+                        <p>Tehran, Iran - Specialized in transportation systems optimization and traffic engineering.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Sharif University of Technology</h3>
+                        <div class="subtitle">B.Sc. in Civil Engineering</div>
+                        <div class="date">2012 - 2016</div>
+                        <p>Tehran, Iran - Graduated in top 20% of class, honored as "Brilliant Talented Student" by Iran's National Elites Foundation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="publications" class="section">
+        <!-- Publications Section -->
+        <section id="publications" class="content-section">
             <div class="container">
-                <h2 class="section-title">Selected Publications</h2>
-                <div class="publications-grid">
-                    <div class="publication-item fade-in">
+                <h2 class="section-title">Publications</h2>
+                
+                <h3 style="color: #667eea; margin-bottom: 30px; font-size: 1.5rem;">Published Articles</h3>
+                <div class="publications-grid fade-in">
+                    <div class="card">
                         <h4>Evolving Patterns of COVID-19 Mortality in US Counties: A Longitudinal Study of Healthcare, Socioeconomic, and Vaccination Associations</h4>
                         <div class="journal">PLOS Global Health (2024)</div>
                         <div class="authors">with Fardin Ganjkhanloo, Ensheng Dong, Felix Parker, Lauren Gardner, and Kimia Ghobadi</div>
                     </div>
                     
-                    <div class="publication-item fade-in">
+                    <div class="card">
                         <h4>The Johns Hopkins University Center for Systems Science and Engineering COVID-19 Dashboard: data collection process, challenges faced, and lessons learned</h4>
                         <div class="journal">The Lancet Infectious Diseases (2022)</div>
                         <div class="authors">with Ensheng Dong, Jeremy Ratcliff, Tamara D Goyea, Aaron Katz, Ryan Lau, Timothy K Ng, Beatrice Garcia, Evan Bolt, Sarah Prata, David Zhang, Reina C Murray, Mara R Blake, Hongru Du, Fardin Ganjkhanloo, Jason Williams, Sayeed Choudhury, Lauren M Gardner</div>
                     </div>
-                    
-                    <div class="publication-item fade-in">
+                </div>
+
+                <h3 style="color: #667eea; margin: 50px 0 30px 0; font-size: 1.5rem;">Under Review</h3>
+                <div class="publications-grid fade-in">
+                    <div class="card">
                         <h4>Leveraging Expert Knowledge to Guide Inverse Optimization: The Case of Nutritional Adherence</h4>
                         <div class="journal">Under Review: Management Sciences</div>
                         <div class="authors">with Fardin Ganjkhanloo and Kimia Ghobadi</div>
                     </div>
                     
-                    <div class="publication-item fade-in">
+                    <div class="card">
                         <h4>You Are What You Eat: A Preference-Aware Inverse Optimization Approach</h4>
                         <div class="journal">Under Review: INFORMS Journal of Optimization</div>
                         <div class="authors">with Tinglong Dai and Kimia Ghobadi</div>
                     </div>
+                    
+                    <div class="card">
+                        <h4>Improving Observed Decisions for Partially Known Optimization Problems Through Inverse Optimization with Application to Radiation Therapy Treatment Planning</h4>
+                        <div class="journal">Under Review: European Journal of Operational Research</div>
+                        <div class="authors">with Todd R. McNutt and Kimia Ghobadi</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Optimal resource and demand redistribution for healthcare systems under stress from COVID-19</h4>
+                        <div class="journal">Preprint (2020)</div>
+                        <div class="authors">with Felix Parker, Hamilton Sawczuk, Fardin Ganjkhanloo, Kimia Ghobadi</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin: 50px 0 30px 0; font-size: 1.5rem;">Articles & Media</h3>
+                <div class="publications-grid fade-in">
+                    <div class="card">
+                        <h4>Detecting and Mitigating Disparities in Preventive Care and Healthcare Delivery: The Role of Artificial Intelligence and Operations Research</h4>
+                        <div class="journal">OR/MS Today (2023)</div>
+                        <div class="authors">with Fardin Ganjkhanloo</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Monkeypox: Another Public Health Crisis</h4>
+                        <div class="journal">OR/MS Today (2022) - Featured on Cover</div>
+                        <div class="authors">with Kimia Ghobadi</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="teaching" class="section" style="background-color: #f8f9fa;">
+        <!-- Teaching Section -->
+        <section id="teaching" class="content-section">
             <div class="container">
                 <h2 class="section-title">Teaching & Service</h2>
-                <div class="experience-grid">
-                    <div class="experience-item fade-in">
+                <div class="card-grid fade-in">
+                    <div class="card">
                         <h3>Teaching Excellence</h3>
-                        <p>Recipient of the Teaching Assistant Award for excellence in teaching and dedication to engineering education at Johns Hopkins University (2022).</p>
-                        <p><strong>Course Evaluation Highlights:</strong> Overall instructor evaluation: 5.00/5.00, Overall course quality: 4.75/5.00</p>
-                    </div>
-                    
-                    <div class="experience-item fade-in">
-                        <h3>Leadership & Service</h3>
-                        <ul style="list-style-type: disc; margin-left: 20px;">
-                            <li>President, Johns Hopkins University INFORMS Student Chapter (2022-2024)</li>
-                            <li>Editorial Board Member, ORMS Tomorrow (2022-2024)</li>
-                            <li>Peer Reviewer, PLOS Global Public Health (2024-2025)</li>
+                        <p><strong>Teaching Assistant Award</strong> for excellence in teaching and dedication to engineering education at Johns Hopkins University (2022).</p>
+                        <p><strong>Outstanding Course Evaluations:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Overall instructor evaluation: <strong>5.00/5.00</strong></li>
+                            <li>Overall course quality: <strong>4.75/5.00</strong></li>
+                            <li>Course: EN.500.111 Healthcare System Engineering (Fall 2023)</li>
                         </ul>
                     </div>
                     
-                    <div class="experience-item fade-in">
-                        <h3>Notable Project</h3>
-                        <p><strong>COVID-19 Dashboard:</strong> Played a key role in data maintenance and monitoring for the globally recognized COVID-19 Dashboard by Johns Hopkins CSSE, working with state health organizations to ensure timely and accurate data reporting.</p>
+                    <div class="card">
+                        <h3>Upcoming Teaching</h3>
+                        <div class="subtitle">Towson University</div>
+                        <p><strong>HLTH207: Health System of U.S.</strong><br>
+                        Summer 2025, Fall 2025</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Leadership & Service</h3>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li><strong>President</strong>, Johns Hopkins University INFORMS Student Chapter (2022-2024)</li>
+                            <li><strong>Editorial Board Member</strong>, ORMS Tomorrow (2022-2024)</li>
+                            <li><strong>Peer Reviewer</strong>, PLOS Global Public Health (2024-2025)</li>
+                            <li><strong>Session Organizer</strong>, POMS Conference 2023</li>
+                            <li><strong>Session Co-Chair</strong>, HICSS 2026 (Upcoming)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Professional Affiliations</h3>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li>Institute for Operations Research and Management Sciences (INFORMS)</li>
+                            <li>Manufacturing and Service Operations Management Society (MSOM)</li>
+                            <li>Health Applications Society (HAS)</li>
+                            <li>American Association of Physicists in Medicine (AAPM)</li>
+                            <li>Society for Industrial and Applied Mathematics (SIAM)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Notable Projects</h3>
+                        <p><strong>COVID-19 Dashboard Contributor:</strong> Played a key role in data maintenance and monitoring for the globally recognized COVID-19 Dashboard by Johns Hopkins CSSE. Worked directly with state health organizations to ensure timely and accurate county and state-level data reporting during the early phases of the pandemic.</p>
+                        
+                        <p><strong>Healthcare Analytics Platform:</strong> Developed and managed WoW.kanoon.ir, an educational platform serving over 100,000 users in Iran, involving data analysis, project management, and cross-functional team coordination (2016-2019).</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Awards & Recognition</h3>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li>Teaching Assistant Award, Johns Hopkins University (2022)</li>
+                            <li>Top 20% in Civil Engineering, Sharif University of Technology (2016)</li>
+                            <li>"Brilliant Talented Student," Iran's National Elites Foundation (2014)</li>
+                            <li>Ranked 221st (top 0.085%) in National University Entrance Exam (2012)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
             <div class="container">
-                <h2 class="section-title">Contact</h2>
+                <h2 class="section-title">Contact Information</h2>
                 <div class="contact-info fade-in">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:fahmadi1@jhu.edu">fahmadi1@jhu.edu</a> | 
+                        <strong>Email:</strong><br>
+                        <a href="mailto:fahmadi@towson.edu">fahmadi@towson.edu</a><br>
+                        <a href="mailto:fahmadi1@jhu.edu">fahmadi1@jhu.edu</a><br>
                         <a href="mailto:farzin.ahmadi1@gmail.com">farzin.ahmadi1@gmail.com</a>
                     </div>
                     
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
+                        <strong>Current Address:</strong><br>
                         Center for Systems Science and Engineering<br>
                         Johns Hopkins University<br>
-                        Shaffer Hall, 3400 N. Charles St., Baltimore, MD 21218
+                        Shaffer Hall, 3400 N. Charles St.<br>
+                        Baltimore, MD 21218
                     </div>
                     
                     <div class="contact-item">
                         <i class="fas fa-globe"></i>
-                        <a href="https://farzin.wse.jhu.edu">https://farzin.wse.jhu.edu</a>
+                        <strong>Professional Profiles:</strong><br>
+                        <a href="https://farzin.wse.jhu.edu">Johns Hopkins Profile</a><br>
+                        <a href="https://farzinahmadi.github.io">GitHub Profile</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-calendar"></i>
+                        <strong>Office Hours:</strong><br>
+                        Available by appointment<br>
+                        <em>Starting Fall 2025 at Towson University</em>
                     </div>
                 </div>
             </div>
@@ -531,53 +668,36 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Tab navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetSection = this.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.add('active');
+                    
+                    // Scroll to top of content
+                    document.querySelector('.nav').scrollIntoView({ behavior: 'smooth' });
                 });
             });
         });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-list a');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
+        // Smooth scrolling for social links
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Let email links work normally
             });
         });
     </script>
