@@ -25,6 +25,69 @@
             padding: 0 20px;
         }
 
+        /* Announcements Banner */
+        .announcements {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .announcements-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .announcements .icon {
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .announcements .text {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .announcements a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .announcements a:hover {
+            opacity: 0.8;
+        }
+
+        .close-banner {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-banner:hover {
+            opacity: 1;
+        }
+
         /* Header */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -310,8 +373,85 @@
             margin-top: 80px;
         }
 
+        /* Readings Section Specific Styles */
+        .readings-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .reading-category {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .reading-list {
+            padding: 25px 30px;
+        }
+
+        .reading-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .reading-item:last-child {
+            border-bottom: none;
+        }
+
+        .reading-item h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .reading-item .source {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .reading-item .description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .coming-soon i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .announcements-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .close-banner {
+                position: static;
+                transform: none;
+                margin-top: 10px;
+            }
             .header h1 {
                 font-size: 2.2rem;
             }
@@ -375,6 +515,24 @@
     </style>
 </head>
 <body>
+    <!-- Announcements Banner -->
+    <div class="announcements" id="announcementsBanner">
+        <div class="container">
+            <div class="announcements-content">
+                <i class="fas fa-bullhorn icon"></i>
+                <div class="text">
+                    🎉 <strong>New Publication:</strong> Our paper on healthcare optimization has been accepted! 
+                    <a href="#" target="_blank">Read more</a> | 
+                    📢 <strong>Speaking at INFORMS 2025</strong> - 
+                    <a href="#" target="_blank">Conference details</a>
+                </div>
+            </div>
+            <button class="close-banner" onclick="closeBanner()" title="Close announcement">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -403,6 +561,7 @@
                 <li><a href="#" data-section="about" class="nav-link active">About</a></li>
                 <li><a href="#" data-section="experience" class="nav-link">Experience</a></li>
                 <li><a href="#" data-section="publications" class="nav-link">Publications</a></li>
+                <li><a href="#" data-section="readings" class="nav-link">Readings</a></li>
                 <li><a href="#" data-section="teaching" class="nav-link">Teaching & Service</a></li>
                 <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
             </ul>
@@ -556,6 +715,71 @@
             </div>
         </section>
 
+        <!-- Readings Section -->
+        <section id="readings" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Readings & Resources</h2>
+                
+                <!-- Coming Soon Message -->
+                <div class="coming-soon fade-in">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Curated Reading List Coming Soon</h3>
+                    <p>I'm currently building a collection of essential readings, papers, and resources in healthcare operations analytics and optimization. This section will include:</p>
+                    <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                        <li>Foundational papers in healthcare operations research</li>
+                        <li>Recent advances in AI for healthcare</li>
+                        <li>Optimization methods in medical decision making</li>
+                        <li>Recommended textbooks and resources</li>
+                        <li>Interesting case studies and applications</li>
+                    </ul>
+                    <p><em>Check back soon for updates!</em></p>
+                </div>
+
+                <!-- Template for future content (hidden by default) -->
+                <div class="readings-grid fade-in" style="display: none;">
+                    <div class="reading-category">
+                        <div class="category-header">
+                            <i class="fas fa-microscope"></i> Healthcare Operations Research
+                        </div>
+                        <div class="reading-list">
+                            <div class="reading-item">
+                                <h4>Title of Paper or Book</h4>
+                                <div class="source">Author Name - Journal/Publisher (Year)</div>
+                                <div class="description">Brief description of why this reading is important and what insights it provides...</div>
+                            </div>
+                            <!-- Add more reading items here -->
+                        </div>
+                    </div>
+
+                    <div class="reading-category">
+                        <div class="category-header">
+                            <i class="fas fa-robot"></i> AI in Healthcare
+                        </div>
+                        <div class="reading-list">
+                            <div class="reading-item">
+                                <h4>Another Important Paper</h4>
+                                <div class="source">Author Name - Conference/Journal (Year)</div>
+                                <div class="description">Description of the paper and its relevance...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reading-category">
+                        <div class="category-header">
+                            <i class="fas fa-chart-line"></i> Optimization Methods
+                        </div>
+                        <div class="reading-list">
+                            <div class="reading-item">
+                                <h4>Textbook or Resource</h4>
+                                <div class="source">Author Name - Publisher (Year)</div>
+                                <div class="description">Why this resource is valuable for understanding optimization in healthcare...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Teaching Section -->
         <section id="teaching" class="content-section">
             <div class="container">
@@ -663,7 +887,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Farzin Ahmadi. All rights reserved. | Last Updated: June 2025</p>
+            <p>&copy; 2025 Farzin Ahmadi. All rights reserved. | Last Updated: March 2025</p>
         </div>
     </footer>
 
