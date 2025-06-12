@@ -248,6 +248,16 @@
             margin-bottom: 20px;
         }
 
+        .about-text a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .about-text a:hover {
+            text-decoration: underline;
+        }
+
         .research-interests {
             background: white;
             padding: 30px;
@@ -298,10 +308,29 @@
             font-size: 1.3rem;
         }
 
+        .card h3 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .card h3 a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
         .card .subtitle {
             color: #667eea;
             font-weight: 600;
             margin-bottom: 5px;
+        }
+
+        .card .subtitle a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .card .subtitle a:hover {
+            text-decoration: underline;
         }
 
         .card .date {
@@ -316,15 +345,43 @@
             line-height: 1.4;
         }
 
+        .card h4 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .card h4 a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
         .card .journal {
             color: #667eea;
             font-weight: 600;
             margin-bottom: 5px;
         }
 
+        .card .journal a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .card .journal a:hover {
+            text-decoration: underline;
+        }
+
         .card .authors {
             color: #666;
             font-size: 0.9rem;
+        }
+
+        .card a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
         }
 
         /* Two column layout for publications */
@@ -512,10 +569,22 @@
         .content-section:nth-child(even) {
             background-color: #f8f9fa;
         }
+
+        /* Additional link styling for better visibility */
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .external-link i {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
-    <!-- Announcements Banner --> <!-- This is a comment -->
+    <!-- Announcements Banner -->
     <div class="announcements" id="announcementsBanner">
         <div class="container">
             <div class="announcements-content">
@@ -524,7 +593,7 @@
                     📢 <strong>MEASLES TRACKER:</strong> We are tracking measles cases in the US with time-series data
                     <a href="https://publichealth.jhu.edu/ivac/resources/us-measles-tracker" target="_blank">Link to the Tracker</a> | 
                     
-                    📢 <strong>I will be at HICSS 59, Submit your work to the AI-DRIVEN HEALTHCARE: BRIDGING SYSTEMS SCIENCE AND CLINICAL PRACTICE MINITRACK</strong> - 
+                    📢 <strong>I will be at <a href="https://hicss.hawaii.edu/" target="_blank">HICSS 59</a>, Submit your work to the AI-DRIVEN HEALTHCARE: BRIDGING SYSTEMS SCIENCE AND CLINICAL PRACTICE MINITRACK</strong> - 
                     
                 </div>
             </div>
@@ -542,15 +611,15 @@
                 </div>
                 <h1>Farzin Ahmadi</h1>
                 <p class="subtitle">Healthcare Operations Analytics & Optimization</p>
-                <p class="position">Incoming Assistant Professor, Towson University (Starting August 2025)</p>
-                <p class="position">Postdoctoral Fellow, Johns Hopkins University</p>
+                <p class="position">Incoming Assistant Professor, <a href="https://www.towson.edu/" target="_blank" style="color: white; text-decoration: underline;">Towson University</a> (Starting August 2025)</p>
+                <p class="position">Postdoctoral Fellow, <a href="https://systems.jhu.edu/" target="_blank" style="color: white; text-decoration: underline;">Johns Hopkins University</a></p>
                 <div class="social-links">
                     <a href="mailto:fahmadi@towson.edu" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://farzinahmadi.github.io" title="GitHub Profile"><i class="fas fa-university"></i></a>
-                    <a href="https://www.linkedin.com/in/farzin-ahmadi/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://scholar.google.com/citations?user=UysbfPkAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://x.com/FarzinAhmadi5" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
-                    <a href="https://github.com/FarzinAhmadi" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://farzin.wse.jhu.edu" title="JHU Profile"><i class="fas fa-university"></i></a>
+                    <a href="https://www.linkedin.com/in/farzin-ahmadi/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=UysbfPkAAAAJ&hl=en" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://x.com/FarzinAhmadi5" title="X (Twitter)" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/FarzinAhmadi" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -576,13 +645,13 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content fade-in">
                     <div class="about-text">
-                        <p>I am an incoming Assistant Professor of Healthcare Management at Towson University and currently a Postdoctoral Fellow at the Center for Systems Science & Engineering at Johns Hopkins University.</p>
+                        <p>I am an incoming Assistant Professor of Healthcare Management at <a href="https://www.towson.edu/" target="_blank">Towson University</a> and currently a Postdoctoral Fellow at the <a href="https://systems.jhu.edu/" target="_blank">Center for Systems Science & Engineering</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>.</p>
                         
                         <p>My research focuses on developing data-driven optimization models and AI-powered decision support systems to improve healthcare delivery, resource allocation, and patient outcomes. I have extensive experience in inverse optimization, machine learning applications in healthcare, and healthcare operations analytics.</p>
                         
-                        <p>I earned my Ph.D. in Civil and Systems Engineering from Johns Hopkins University, where I worked on cutting-edge research in healthcare operations optimization and inverse optimization methods.</p>
+                        <p>I earned my Ph.D. in Civil and Systems Engineering from <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>, where I worked on cutting-edge research in healthcare operations optimization and inverse optimization methods.</p>
                         
-                        <p>I was also a Ph.D. researcher at MIT's Computer Science & Artificial Intelligence Laboratory (CSAIL), where I further developed my expertise in AI applications for healthcare systems.</p>
+                        <p>I was also a Ph.D. researcher at <a href="https://www.mit.edu/" target="_blank">MIT's</a> <a href="https://www.csail.mit.edu/" target="_blank">Computer Science & Artificial Intelligence Laboratory (CSAIL)</a>, where I further developed my expertise in AI applications for healthcare systems.</p>
                     </div>
                     
                     <div class="research-interests">
@@ -607,46 +676,46 @@
                 <h2 class="section-title">Experience & Education</h2>
                 <div class="card-grid fade-in">
                     <div class="card">
-                        <h3>Towson University</h3>
+                        <h3><a href="https://www.towson.edu/" target="_blank">Towson University</a></h3>
                         <div class="subtitle">Incoming Assistant Professor of Healthcare Management</div>
                         <div class="date">Starting August 2025</div>
-                        <p>Joining the College of Health Professions to teach and conduct research in healthcare operations and management.</p>
+                        <p>Joining the <a href="https://www.towson.edu/chp/" target="_blank">College of Health Professions</a> to teach and conduct research in healthcare operations and management.</p>
                     </div>
                     
                     <div class="card">
-                        <h3>Johns Hopkins University</h3>
-                        <div class="subtitle">Postdoctoral Fellow, Center for Systems Science & Engineering</div>
+                        <h3><a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a></h3>
+                        <div class="subtitle">Postdoctoral Fellow, <a href="https://systems.jhu.edu/" target="_blank">Center for Systems Science & Engineering</a></div>
                         <div class="date">March 2025 - August 2025</div>
                         <p>Conducting advanced research in healthcare systems engineering and epidemiological modeling.</p>
                     </div>
                     
                     <div class="card">
-                        <h3>Massachusetts Institute of Technology</h3>
-                        <div class="subtitle">Ph.D. Researcher, Computer Science & AI Laboratory (CSAIL)</div>
+                        <h3><a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a></h3>
+                        <div class="subtitle">Ph.D. Researcher, <a href="https://www.csail.mit.edu/" target="_blank">Computer Science & AI Laboratory (CSAIL)</a></div>
                         <div class="date">June 2024 - December 2024</div>
                         <p>Research focused on AI applications in healthcare operations and decision-making systems.</p>
                     </div>
                     
                     <div class="card">
-                        <h3>Johns Hopkins University</h3>
+                        <h3><a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a></h3>
                         <div class="subtitle">Ph.D. in Civil and Systems Engineering</div>
                         <div class="date">2019 - 2025</div>
-                        <p><strong>Dissertation Committee:</strong> Todd McNutt (chair), Kimia Ghobadi (advisor), Tinglong Dai, Yury Dvorkin, Takeru Igusa, Susu Xu, Ritu Agarwal</p>
+                        <p><strong>Dissertation Committee:</strong> <a href="https://www.hopkinsmedicine.org/profiles/details/todd-mcnutt" target="_blank">Todd McNutt</a> (chair), <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a> (advisor), <a href="https://www.tinglong-dai.com/" target="_blank">Tinglong Dai</a>, <a href="https://engineering.jhu.edu/faculty/yury-dvorkin/" target="_blank">Yury Dvorkin</a>, <a href="https://engineering.jhu.edu/faculty/takeru-igusa/" target="_blank">Takeru Igusa</a>, <a href="https://engineering.jhu.edu/faculty/susu-xu/" target="_blank">Susu Xu</a>, <a href="https://carey.jhu.edu/faculty/faculty-directory/ritu-agarwal-bio" target="_blank">Ritu Agarwal</a></p>
                         <p><strong>M.S. in Systems Engineering</strong> completed as part of the doctoral program.</p>
                     </div>
                     
                     <div class="card">
-                        <h3>Sharif University of Technology</h3>
+                        <h3><a href="http://www.sharif.edu/" target="_blank">Sharif University of Technology</a></h3>
                         <div class="subtitle">M.Eng. in Transportation Engineering</div>
                         <div class="date">2016 - 2018</div>
                         <p>Tehran, Iran - Specialized in transportation systems optimization and traffic engineering.</p>
                     </div>
                     
                     <div class="card">
-                        <h3>Sharif University of Technology</h3>
+                        <h3><a href="http://www.sharif.edu/" target="_blank">Sharif University of Technology</a></h3>
                         <div class="subtitle">B.Sc. in Civil Engineering</div>
                         <div class="date">2012 - 2016</div>
-                        <p>Tehran, Iran - Graduated in top 20% of class, honored as "Brilliant Talented Student" by Iran's National Elites Foundation.</p>
+                        <p>Tehran, Iran - Graduated in top 20% of class, honored as "Brilliant Talented Student" by <a href="https://bmn.ir/en" target="_blank">Iran's National Elites Foundation</a>.</p>
                     </div>
                 </div>
             </div>
@@ -660,15 +729,15 @@
                 <h3 style="color: #667eea; margin-bottom: 30px; font-size: 1.5rem;">Published Articles</h3>
                 <div class="publications-grid fade-in">
                     <div class="card">
-                        <h4>Evolving Patterns of COVID-19 Mortality in US Counties: A Longitudinal Study of Healthcare, Socioeconomic, and Vaccination Associations</h4>
-                        <div class="journal">PLOS Global Health (2024)</div>
-                        <div class="authors">with Fardin Ganjkhanloo, Ensheng Dong, Felix Parker, Lauren Gardner, and Kimia Ghobadi</div>
+                        <h4><a href="https://doi.org/10.1371/journal.pgph.0003045" target="_blank">Evolving Patterns of COVID-19 Mortality in US Counties: A Longitudinal Study of Healthcare, Socioeconomic, and Vaccination Associations</a></h4>
+                        <div class="journal"><a href="https://journals.plos.org/globalpublichealth/" target="_blank">PLOS Global Public Health</a> (2024)</div>
+                        <div class="authors">with Fardin Ganjkhanloo, Ensheng Dong, Felix Parker, <a href="https://engineering.jhu.edu/faculty/lauren-gardner/" target="_blank">Lauren Gardner</a>, and <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                     
                     <div class="card">
-                        <h4>The Johns Hopkins University Center for Systems Science and Engineering COVID-19 Dashboard: data collection process, challenges faced, and lessons learned</h4>
-                        <div class="journal">The Lancet Infectious Diseases (2022)</div>
-                        <div class="authors">with Ensheng Dong, Jeremy Ratcliff, Tamara D Goyea, Aaron Katz, Ryan Lau, Timothy K Ng, Beatrice Garcia, Evan Bolt, Sarah Prata, David Zhang, Reina C Murray, Mara R Blake, Hongru Du, Fardin Ganjkhanloo, Jason Williams, Sayeed Choudhury, Lauren M Gardner</div>
+                        <h4><a href="https://doi.org/10.1016/S1473-3099(22)00434-0" target="_blank">The Johns Hopkins University Center for Systems Science and Engineering COVID-19 Dashboard: data collection process, challenges faced, and lessons learned</a></h4>
+                        <div class="journal"><a href="https://www.thelancet.com/journals/laninf/home" target="_blank">The Lancet Infectious Diseases</a> (2022)</div>
+                        <div class="authors">with Ensheng Dong, Jeremy Ratcliff, Tamara D Goyea, Aaron Katz, Ryan Lau, Timothy K Ng, Beatrice Garcia, Evan Bolt, Sarah Prata, David Zhang, Reina C Murray, Mara R Blake, Hongru Du, Fardin Ganjkhanloo, Jason Williams, Sayeed Choudhury, <a href="https://engineering.jhu.edu/faculty/lauren-gardner/" target="_blank">Lauren M Gardner</a></div>
                     </div>
                 </div>
 
@@ -676,41 +745,62 @@
                 <div class="publications-grid fade-in">
                     <div class="card">
                         <h4>Leveraging Expert Knowledge to Guide Inverse Optimization: The Case of Nutritional Adherence</h4>
-                        <div class="journal">Under Review: Management Sciences</div>
-                        <div class="authors">with Fardin Ganjkhanloo and Kimia Ghobadi</div>
+                        <div class="journal">Under Review: <a href="https://pubsonline.informs.org/journal/mnsc" target="_blank">Management Science</a></div>
+                        <div class="authors">with Fardin Ganjkhanloo and <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                     
                     <div class="card">
                         <h4>You Are What You Eat: A Preference-Aware Inverse Optimization Approach</h4>
-                        <div class="journal">Under Review: INFORMS Journal of Optimization</div>
-                        <div class="authors">with Tinglong Dai and Kimia Ghobadi</div>
+                        <div class="journal">Under Review: <a href="https://pubsonline.informs.org/journal/ijoo" target="_blank">INFORMS Journal of Optimization</a></div>
+                        <div class="authors">with <a href="https://www.tinglong-dai.com/" target="_blank">Tinglong Dai</a> and <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                     
                     <div class="card">
                         <h4>Improving Observed Decisions for Partially Known Optimization Problems Through Inverse Optimization with Application to Radiation Therapy Treatment Planning</h4>
-                        <div class="journal">Under Review: European Journal of Operational Research</div>
-                        <div class="authors">with Todd R. McNutt and Kimia Ghobadi</div>
+                        <div class="journal">Under Review: <a href="https://www.sciencedirect.com/journal/european-journal-of-operational-research" target="_blank">European Journal of Operational Research</a></div>
+                        <div class="authors">with <a href="https://www.hopkinsmedicine.org/profiles/details/todd-mcnutt" target="_blank">Todd R. McNutt</a> and <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                     
                     <div class="card">
                         <h4>Optimal resource and demand redistribution for healthcare systems under stress from COVID-19</h4>
                         <div class="journal">Preprint (2020)</div>
-                        <div class="authors">with Felix Parker, Hamilton Sawczuk, Fardin Ganjkhanloo, Kimia Ghobadi</div>
+                        <div class="authors">with Felix Parker, Hamilton Sawczuk, Fardin Ganjkhanloo, <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                 </div>
 
                 <h3 style="color: #667eea; margin: 50px 0 30px 0; font-size: 1.5rem;">Articles & Media</h3>
                 <div class="publications-grid fade-in">
                     <div class="card">
-                        <h4>Detecting and Mitigating Disparities in Preventive Care and Healthcare Delivery: The Role of Artificial Intelligence and Operations Research</h4>
-                        <div class="journal">OR/MS Today (2023)</div>
+                        <h4><a href="https://pubsonline.informs.org/do/10.1287/orms.2023.03.23/full/" target="_blank">Detecting and Mitigating Disparities in Preventive Care and Healthcare Delivery: The Role of Artificial Intelligence and Operations Research</a></h4>
+                        <div class="journal"><a href="https://pubsonline.informs.org/magazine/orms-today" target="_blank">OR/MS Today</a> (2023)</div>
                         <div class="authors">with Fardin Ganjkhanloo</div>
                     </div>
                     
                     <div class="card">
-                        <h4>Monkeypox: Another Public Health Crisis</h4>
-                        <div class="journal">OR/MS Today (2022) - Featured on Cover</div>
-                        <div class="authors">with Kimia Ghobadi</div>
+                        <h4><a href="https://pubsonline.informs.org/do/10.1287/orms.2022.06.01/full/" target="_blank">Monkeypox: Another Public Health Crisis</a></h4>
+                        <div class="journal"><a href="https://pubsonline.informs.org/magazine/orms-today" target="_blank">OR/MS Today</a> (2022) - Featured on Cover</div>
+                        <div class="authors">with <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
+                    </div>
+
+                    <div class="card">
+                        <h4><a href="https://www.informs.org/Publications/OR-MS-Tomorrow/Navigating-the-Use-of-ChatGPT-in-Education-and-Research-Impacts-and-Guidelines" target="_blank">Navigating the Use of ChatGPT in Education and Research: Impacts and Guidelines</a></h4>
+                        <div class="journal"><a href="https://www.informs.org/Publications/OR-MS-Tomorrow" target="_blank">OR/MS Tomorrow</a> (Summer 2023)</div>
+                        <div class="authors">with Saeedeh Dehghani Firoozabadi</div>
+                    </div>
+
+                    <div class="card">
+                        <h4><a href="https://www.informs.org/Publications/OR-MS-Tomorrow/Applications-of-ORMS-in-the-Finance-Industry" target="_blank">OR/MS Tomorrow Industry Series: OR/MS in Finance</a></h4>
+                        <div class="journal"><a href="https://www.informs.org/Publications/OR-MS-Tomorrow" target="_blank">OR/MS Tomorrow</a> (Summer 2023)</div>
+                        <div class="authors">with Frederick "Forrest" Miller</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin: 50px 0 30px 0; font-size: 1.5rem;">Extended Abstracts & Conference Presentations</h3>
+                <div class="publications-grid fade-in">
+                    <div class="card">
+                        <h4><a href="https://aapm.onlinelibrary.wiley.com/doi/abs/10.1002/mp.15799" target="_blank">Learning DVH Criteria in Radiation Therapy Treatment Planning</a></h4>
+                        <div class="journal"><a href="https://www.aapm.org/" target="_blank">Medical Physics</a> (2022)</div>
+                        <div class="authors">with <a href="https://www.hopkinsmedicine.org/profiles/details/todd-mcnutt" target="_blank">Todd R. McNutt</a> and <a href="https://engineering.jhu.edu/faculty/kimia-ghobadi/" target="_blank">Kimia Ghobadi</a></div>
                     </div>
                 </div>
             </div>
@@ -735,49 +825,6 @@
                     </ul>
                     <p><em>Check back soon for updates!</em></p>
                 </div>
-
-                <!-- Template for future content (hidden by default) -->
-                <div class="readings-grid fade-in" style="display: none;">
-                    <div class="reading-category">
-                        <div class="category-header">
-                            <i class="fas fa-microscope"></i> Healthcare Operations Research
-                        </div>
-                        <div class="reading-list">
-                            <div class="reading-item">
-                                <h4>Title of Paper or Book</h4>
-                                <div class="source">Author Name - Journal/Publisher (Year)</div>
-                                <div class="description">Brief description of why this reading is important and what insights it provides...</div>
-                            </div>
-                            <!-- Add more reading items here -->
-                        </div>
-                    </div>
-
-                    <div class="reading-category">
-                        <div class="category-header">
-                            <i class="fas fa-robot"></i> AI in Healthcare
-                        </div>
-                        <div class="reading-list">
-                            <div class="reading-item">
-                                <h4>Another Important Paper</h4>
-                                <div class="source">Author Name - Conference/Journal (Year)</div>
-                                <div class="description">Description of the paper and its relevance...</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="reading-category">
-                        <div class="category-header">
-                            <i class="fas fa-chart-line"></i> Optimization Methods
-                        </div>
-                        <div class="reading-list">
-                            <div class="reading-item">
-                                <h4>Textbook or Resource</h4>
-                                <div class="source">Author Name - Publisher (Year)</div>
-                                <div class="description">Why this resource is valuable for understanding optimization in healthcare...</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -788,7 +835,7 @@
                 <div class="card-grid fade-in">
                     <div class="card">
                         <h3>Teaching Excellence</h3>
-                        <p><strong>Teaching Assistant Award</strong> for excellence in teaching and dedication to engineering education at Johns Hopkins University (2022).</p>
+                        <p><strong>Teaching Assistant Award</strong> for excellence in teaching and dedication to engineering education at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a> (2022).</p>
                         <p><strong>Outstanding Course Evaluations:</strong></p>
                         <ul style="margin-left: 20px; margin-top: 10px;">
                             <li>Overall instructor evaluation: <strong>5.00/5.00</strong></li>
@@ -799,7 +846,7 @@
                     
                     <div class="card">
                         <h3>Upcoming Teaching</h3>
-                        <div class="subtitle">Towson University</div>
+                        <div class="subtitle"><a href="https://www.towson.edu/" target="_blank">Towson University</a></div>
                         <p><strong>HLTH207: Health System of U.S.</strong><br>
                         Summer 2025, Fall 2025</p>
                     </div>
@@ -807,39 +854,49 @@
                     <div class="card">
                         <h3>Leadership & Service</h3>
                         <ul style="list-style-type: disc; margin-left: 20px;">
-                            <li><strong>President</strong>, Johns Hopkins University INFORMS Student Chapter (2022-2024)</li>
-                            <li><strong>Editorial Board Member</strong>, ORMS Tomorrow (2022-2024)</li>
-                            <li><strong>Peer Reviewer</strong>, PLOS Global Public Health (2024-2025)</li>
-                            <li><strong>Session Organizer</strong>, POMS Conference 2023</li>
-                            <li><strong>Session Co-Chair</strong>, HICSS 2026 (Upcoming)</li>
+                            <li><strong>President</strong>, <a href="https://www.informs.org/" target="_blank">Johns Hopkins University INFORMS Student Chapter</a> (2022-2024)</li>
+                            <li><strong>Editorial Board Member</strong>, <a href="https://www.informs.org/Publications/OR-MS-Tomorrow" target="_blank">ORMS Tomorrow</a> (2022-2024)</li>
+                            <li><strong>Peer Reviewer</strong>, <a href="https://journals.plos.org/globalpublichealth/" target="_blank">PLOS Global Public Health</a> (2024-2025)</li>
+                            <li><strong>Session Organizer</strong>, <a href="https://www.poms.org/" target="_blank">POMS Conference 2023</a></li>
+                            <li><strong>Session Co-Chair</strong>, <a href="https://hicss.hawaii.edu/" target="_blank">HICSS 2026</a> (Upcoming)</li>
                         </ul>
                     </div>
                     
                     <div class="card">
                         <h3>Professional Affiliations</h3>
                         <ul style="list-style-type: disc; margin-left: 20px;">
-                            <li>Institute for Operations Research and Management Sciences (INFORMS)</li>
-                            <li>Manufacturing and Service Operations Management Society (MSOM)</li>
-                            <li>Health Applications Society (HAS)</li>
-                            <li>American Association of Physicists in Medicine (AAPM)</li>
-                            <li>Society for Industrial and Applied Mathematics (SIAM)</li>
+                            <li><a href="https://www.informs.org/" target="_blank">Institute for Operations Research and Management Sciences (INFORMS)</a></li>
+                            <li><a href="https://www.poms.org/" target="_blank">Manufacturing and Service Operations Management Society (MSOM)</a></li>
+                            <li><a href="https://www.informs.org/Community/Health-Applications-Society" target="_blank">Health Applications Society (HAS)</a></li>
+                            <li><a href="https://www.aapm.org/" target="_blank">American Association of Physicists in Medicine (AAPM)</a></li>
+                            <li><a href="https://www.siam.org/" target="_blank">Society for Industrial and Applied Mathematics (SIAM)</a></li>
                         </ul>
                     </div>
                     
                     <div class="card">
                         <h3>Notable Projects</h3>
-                        <p><strong>COVID-19 Dashboard Contributor:</strong> Played a key role in data maintenance and monitoring for the globally recognized COVID-19 Dashboard by Johns Hopkins CSSE. Worked directly with state health organizations to ensure timely and accurate county and state-level data reporting during the early phases of the pandemic.</p>
+                        <p><strong><a href="https://coronavirus.jhu.edu/map.html" target="_blank">COVID-19 Dashboard</a> Contributor:</strong> Played a key role in data maintenance and monitoring for the globally recognized <a href="https://coronavirus.jhu.edu/" target="_blank">COVID-19 Dashboard by Johns Hopkins CSSE</a>. Worked directly with state health organizations to ensure timely and accurate county and state-level data reporting during the early phases of the pandemic.</p>
                         
-                        <p><strong>Healthcare Analytics Platform:</strong> Developed and managed WoW.kanoon.ir, an educational platform serving over 100,000 users in Iran, involving data analysis, project management, and cross-functional team coordination (2016-2019).</p>
+                        <p><strong>Healthcare Analytics Platform:</strong> Developed and managed <a href="https://WoW.kanoon.ir" target="_blank">WoW.kanoon.ir</a>, an educational platform serving over 100,000 users in Iran, involving data analysis, project management, and cross-functional team coordination (2016-2019).</p>
                     </div>
 
                     <div class="card">
                         <h3>Awards & Recognition</h3>
                         <ul style="list-style-type: disc; margin-left: 20px;">
-                            <li>Teaching Assistant Award, Johns Hopkins University (2022)</li>
-                            <li>Top 20% in Civil Engineering, Sharif University of Technology (2016)</li>
-                            <li>"Brilliant Talented Student," Iran's National Elites Foundation (2014)</li>
+                            <li>Teaching Assistant Award, <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a> (2022)</li>
+                            <li>Top 20% in Civil Engineering, <a href="http://www.sharif.edu/" target="_blank">Sharif University of Technology</a> (2016)</li>
+                            <li>"Brilliant Talented Student," <a href="https://bmn.ir/en" target="_blank">Iran's National Elites Foundation</a> (2014)</li>
                             <li>Ranked 221st (top 0.085%) in National University Entrance Exam (2012)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Media Coverage</h3>
+                        <ul style="list-style-type: disc; margin-left: 20px;">
+                            <li><a href="https://coronavirus.jhu.edu/" target="_blank">JHU Coronavirus Resource Center (CRC)</a> - <em>Johns Hopkins University and Medicine</em> (March 2023)</li>
+                            <li><a href="https://malonecenter.jhu.edu/one-size-doesnt-fit-all-an-ai-approach-to-creating-healthy-personalized-diets/" target="_blank">One size doesn't fit all: An AI approach to creating healthy personalized diets</a> - <em>Malone Center for Engineering in Healthcare News</em> (November 2022)</li>
+                            <li><a href="https://hub.jhu.edu/2022/09/28/lauren-gardner-lasker/" target="_blank">COVID-19 Dashboard Creator Lauren Gardner Wins Lasker-Bloomberg Public Service Award</a> - <em>The Hub (Johns Hopkins University)</em> (September 2022)</li>
+                            <li><a href="https://hub.jhu.edu/2021/02/18/hospital-data-dashboard-kimia-ghobadi/" target="_blank">New COVID-19 dashboard helps users make informed decisions regarding hospital care</a> - <em>The Hub (Johns Hopkins University)</em> (February 2021)</li>
                         </ul>
                     </div>
                 </div>
@@ -862,8 +919,8 @@
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <strong>Current Address:</strong><br>
-                        Center for Systems Science and Engineering<br>
-                        Johns Hopkins University<br>
+                        <a href="https://systems.jhu.edu/" target="_blank">Center for Systems Science and Engineering</a><br>
+                        <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a><br>
                         Shaffer Hall, 3400 N. Charles St.<br>
                         Baltimore, MD 21218
                     </div>
@@ -871,15 +928,17 @@
                     <div class="contact-item">
                         <i class="fas fa-globe"></i>
                         <strong>Professional Profiles:</strong><br>
-                        <a href="https://farzin.wse.jhu.edu">Johns Hopkins Profile</a><br>
-                        <a href="https://farzinahmadi.github.io">GitHub Profile</a>
+                        <a href="https://farzin.wse.jhu.edu" target="_blank">Johns Hopkins Profile</a><br>
+                        <a href="https://farzinahmadi.github.io" target="_blank">GitHub Profile</a><br>
+                        <a href="https://scholar.google.com/citations?user=UysbfPkAAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+                        <a href="https://www.linkedin.com/in/farzin-ahmadi/" target="_blank">LinkedIn</a>
                     </div>
                     
                     <div class="contact-item">
                         <i class="fas fa-calendar"></i>
                         <strong>Office Hours:</strong><br>
                         Available by appointment<br>
-                        <em>Starting Fall 2025 at Towson University</em>
+                        <em>Starting Fall 2025 at <a href="https://www.towson.edu/" target="_blank">Towson University</a></em>
                     </div>
                 </div>
             </div>
@@ -918,6 +977,11 @@
                 });
             });
         });
+
+        // Close banner functionality
+        function closeBanner() {
+            document.getElementById('announcementsBanner').style.display = 'none';
+        }
 
         // Smooth scrolling for social links
         document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
